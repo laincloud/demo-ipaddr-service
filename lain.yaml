@@ -10,6 +10,7 @@ build:
 proc.ipaddr:
   cmd: python service.py
   port: 10000
+  num_instances: 2
   volumes:
     - /logs:
         backup_full:

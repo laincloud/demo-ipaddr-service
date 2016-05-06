@@ -10,13 +10,23 @@ build:
 proc.ipaddr:
   cmd: python service.py
   port: 10000
+  volumes:
+    - /logs:
+        backup_full:
+          schedule: "*/5 * * * *"
+          expire: 1h
 
 portal.portal-ipaddr:
   service_name: ipaddr
   allow_clients: "**"
   cmd: python proxy.py
   port: 10000
-  
+  volumes:
+    - /logs:
+        backup_full:
+          schedule: "*/5 * * * *"
+          expire: 1h
+
 notify:
   slack: "#lain"
 

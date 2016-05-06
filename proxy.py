@@ -12,7 +12,7 @@ def get_upstreams():
     upstreams = []
     try:
         service_appname = environ.get("LAIN_APPNAME")
-        service_procname = environ.get("LAIN_SERVICE_NAME")
+        service_procname = "web"
         print "service_appname: {}".format(service_appname)
         url = 'http://lainlet.lain:9001/v2/proxywatcher?appname={}'.format(service_appname)
         r = requests.get(url)

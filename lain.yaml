@@ -15,6 +15,10 @@ proc.ipaddr:
         backup_full:
           schedule: "*/5 * * * *"
           expire: 1h
+    - /incremental:
+        backup_increment:
+          schedule: "* * * * *"
+          expire: 30m
 
 portal.portal-ipaddr:
   service_name: ipaddr

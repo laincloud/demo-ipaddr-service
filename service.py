@@ -3,6 +3,7 @@
 
 import os
 import re
+import json
 from flask import Flask
 
 p = re.compile(r'.*inet (.*\..*\..*\..*)\/.*')
@@ -24,7 +25,8 @@ def get_ip_list():
 @app.route("/")
 def get_ipaddr():
     ip_list = get_ip_list()
-    return 'service ip: ' + " ".join(ip_list)
+    r = {'service_ip': ip_list}
+    return json.dumps(r)
 
 
 if __name__ == "__main__":
